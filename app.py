@@ -9,7 +9,7 @@ class User(Model):
     email = CharField(unique=True)
     password = CharField(max_length=100)
     joined_at = DateTimeField(default=datetime.datetime.now)
-    is_admin = Boolean Field(default=False)
+    is_admin = BooleanField(default=False)
 
     class Meta:
         database = DATABASE
