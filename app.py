@@ -20,5 +20,5 @@ def after_request(response):
     g.db.close()
     return response
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run(debug=DEBUG, host=HOST, port=PORT)
