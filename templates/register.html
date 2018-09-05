@@ -1,0 +1,18 @@
+{% from 'macros.html' import render_field %}
+<!doctype html>
+<html>
+  <head>
+    <title>Register</title>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+
+    <form method="POST" action="" class="form">
+      {{ form.hidden_tag() }}
+      {% for field in form %}
+        {{ render_field(field) }}
+      {% endfor %}
+    </form>
+
+  </body>
+</html>
