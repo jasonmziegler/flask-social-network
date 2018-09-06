@@ -1,5 +1,5 @@
-from flask_wtf import Form
-from wtforms import StringField, PasswordField
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, TextAreaField
 from wtforms.validators import (DataRequired, Regexp, ValidationError, Email,
                                Length, EqualTo)
 
@@ -13,7 +13,7 @@ def email_exists(form, field):
     if User.select().where(User.email == field.data).exists():
         raise ValidationError('User with that email already exists')
 
-class RegisterForm(Form):
+class RegisterForm(FlaskForm):
     username = StringField(
         'Username',
         validators=[
@@ -44,6 +44,9 @@ class RegisterForm(Form):
             validators = [DataRequired()]
             )
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
+
+class PostForm(FlaskForm):
+    content = TextAreaField("What's up?", validators=[DataRequired()])
